@@ -49,3 +49,10 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+# Helpers
+
+def supply_auth_token_header_for(token)
+  auth_token = ActionController::HttpAuthentication::Token.encode_credentials(token)
+  request.env["HTTP_AUTHORIZATION"] = auth_token
+end

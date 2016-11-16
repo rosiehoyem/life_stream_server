@@ -40,6 +40,7 @@ group :test, :development do
   gem 'listen'
   gem 'pry'
   gem 'pry-nav'
+  gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
@@ -49,9 +50,9 @@ group :test, :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
 end
+
+gem 'web-console', group: :development
 
 group :production do
   gem 'rails_12factor' # for heroku logging
