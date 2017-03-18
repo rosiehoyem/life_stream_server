@@ -1,0 +1,54 @@
+#content class="content"
+  h1.page-header Dashboard <small>header small text goes here...</small>
+  .row
+    .col-md-3.col-sm-6
+      .widget.widget-stats.bg-green
+        .stats-icon
+          <i class="fa fa-desktop"></i>
+        .stats-info
+          h4 TOTAL VISITORS
+          p 3,291,922  
+        .stats-link
+          <a href="javascript:;">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+
+    .col-md-3.col-sm-6
+      .widget.widget-stats.bg-blue
+        .stats-icon
+          <i class="fa fa-chain-broken"></i>
+        .stats-info
+          h4 BOUNCE RATE
+          p 20.44% 
+        .stats-link
+          <a href="javascript:;">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+    .col-md-3.col-sm-6
+      .widget.widget-stats.bg-purple
+        .stats-icon
+          <i class="fa fa-users"></i>
+        .stats-info
+          h4 UNIQUE VISITORS
+          p 1,291,922  
+        .stats-link
+          <a href="javascript:;">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+    .col-md-3.col-sm-6
+      .widget.widget-stats.bg-red
+        .stats-icon
+          <i class="fa fa-clock-o"></i>
+        .stats-info
+          h4 AVG TIME ON SITE
+          p 00:12:23 
+        .stats-link
+          <a href="javascript:;">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+
+  .row
+    .col-md-8
+      .panel.panel-inverse data-sortable-id="index-1"
+        .panel-heading
+          .panel-heading-btn
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
+          h4.panel-title Website Analytics (Last 7 Days)
+        .panel-body
+          #interactive-chart class="height-sm"

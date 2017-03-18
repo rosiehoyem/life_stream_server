@@ -3,11 +3,13 @@ html
   head
     title Life Stream Server
     = csrf_meta_tags
+    meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-  	- if user_signed_in?
-       = link_to "Logout", destroy_user_session_path, {method: :delete, class: "logout"}
+    #page-container class="page-sidebar-fixed page-header-fixed"
+      = render 'partials/top_nav'
+      = render 'partials/sidebar'
     = yield
 

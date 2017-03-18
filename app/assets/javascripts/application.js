@@ -11,6 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
+//= require bootstrap
+// require pace
+//= require Chart.bundle
+//= require apps
+// require dashboard
+//= require_tree ./behaviors
 //= require_tree .
