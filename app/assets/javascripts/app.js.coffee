@@ -7,4 +7,5 @@
 $(document).ready ->
   $(document).trigger 'app:ready'
   AppTheme.init
+  Dashboard.init
 

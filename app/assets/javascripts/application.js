@@ -15,9 +15,9 @@
 //= require jquery_ujs
 // require turbolinks
 //= require bootstrap
-// require pace
+//= require pace
 //= require Chart.bundle
 //= require apps
-// require dashboard
+//= require dashboard
 //= require_tree ./behaviors
 //= require_tree .
