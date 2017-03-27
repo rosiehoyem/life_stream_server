@@ -8,5 +8,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
+    #page-container class="page-sidebar-fixed page-header-fixed"
+      = render 'partials/top_nav'
+      = render 'partials/sidebar'
     = yield
-

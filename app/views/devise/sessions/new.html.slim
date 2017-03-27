@@ -1,20 +1,41 @@
-h2 Log in
+body.pace-top.bg-white
+  #page-container
+    .login.login-with-news-feed
+      .news-feed
+        .news-image
+          = image_tag "bg-7.jpg", title: "big starry sky", data: { "id": "login-cover-image" }
+        .news-caption
+          h4.caption-title <i class="fa fa-diamond text-success"></i> Welcome to Life Stream</h4>
+          p
+            Life Stream brings together data from across your life revealing new insights. Be the first to know about our Beta release when it is ready.
 
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
-  .field
-    = f.label :email 
-    = f.email_field :email, autofocus: true 
+      .right-content
+        .login-header
+          .brand
+            <span class="logo"></span> Life Stream
+            <small>Personal insights platform</small>
+          br
+          .icon
+            <i class="fa fa-sign-in"></i>
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .form-group.m-b-15
+              .pull-left
+                = f.label :email
+              = f.email_field :email, autofocus: true, class: "form-control"
 
-  .field
-    = f.label :password 
-    = f.password_field :password, autocomplete: "off" 
+            .form-group.m-b-15
+              .pull-left
+                = f.label :password
+              = f.password_field :password, autocomplete: "off", class: "form-control"
+              br
+            .login-buttons
+              = f.submit "Log in", class: "btn btn-success btn-block btn-lg"
+            .m-t-20.m-b-40.p-b-40.text-inverse Not a member yet? Click <a href="register_v3.html" class="text-success">here</a> to register.
 
-  = if devise_mapping.rememberable? 
-    .field
-      = f.check_box :remember_me 
-      = f.label :remember_me 
+          
 
-  .actions
-    = f.submit "Log in" 
+            <hr />
+            p.text-center &copy; Rosie Hoyem All Right Reserved 2017
 
-= render "devise/shared/links" 
+
+

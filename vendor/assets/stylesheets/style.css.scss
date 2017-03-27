@@ -4439,7 +4439,7 @@ body .fc button:active {
     z-index: 1020;
 }
 .coming-soon .coming-soon-header {
-    background: url(../img/coming-soon.jpg);
+    background: asset-url("gallery-1.jpg");
     padding: 100px 0 50px;
     position: relative;
 }
