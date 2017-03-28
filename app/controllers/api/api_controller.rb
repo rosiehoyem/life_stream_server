@@ -1,7 +1,7 @@
 class Api::ApiController < ActionController::Base
   protect_from_forgery with: :null_session
-  skip_before_action :verify_authenticity_token # No session & API not browser based
-  before_action :authenticate_with_app_user_token
+  # skip_before_action :verify_authenticity_token # No session & API not browser based
+  # before_action :authenticate_with_app_user_token
   before_action :require_json
 
   respond_to :json

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   render layout: 'user_layout'
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -51,17 +51,17 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :first_name, 
-      :last_name, 
-      :age, 
-      :gender, 
-      :address, 
-      :city, 
-      :state, 
-      :zip, 
-      :email, 
-      :password, 
-      :password_confirmation
+      # :first_name, 
+      # :last_name, 
+      # :age, 
+      # :gender, 
+      # :address, 
+      # :city, 
+      # :state, 
+      # :zip, 
+      # :email, 
+      # :password, 
+      # :password_confirmation
     )
   end
 end

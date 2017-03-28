@@ -1,0 +1,71 @@
+h1 Listing day_stats
+
+table
+  thead
+    tr
+      th Amount
+      th Resting heart rate
+      th Cardio mins
+      th Fat burn mins
+      th Peak mins
+      th Total minutes asleep
+      th Awakenings countstart time
+      th Cycling
+      th Running
+      th Stationary
+      th Transport
+      th Walking
+      th Active
+      th High temp
+      th Low temp
+      th Precip inches
+      th Snow inches
+      th Snow depth inches
+      th Sunrise
+      th Sunset
+      th Year
+      th Month
+      th Day of week
+      th Is weekend
+      th Week
+      th Season
+      th
+      th
+      th
+
+  tbody
+    - @day_stats.each do |day_stat|
+      tr
+        td = day_stat.amount
+        td = day_stat.resting_heart_rate
+        td = day_stat.cardio_mins
+        td = day_stat.fat_burn_mins
+        td = day_stat.peak_mins
+        td = day_stat.total_minutes_asleep
+        td = day_stat.awakenings_countstart_time
+        td = day_stat.cycling
+        td = day_stat.running
+        td = day_stat.stationary
+        td = day_stat.transport
+        td = day_stat.walking
+        td = day_stat.active
+        td = day_stat.high_temp
+        td = day_stat.low_temp
+        td = day_stat.precip_inches
+        td = day_stat.snow_inches
+        td = day_stat.snow_depth_inches
+        td = day_stat.sunrise
+        td = day_stat.sunset
+        td = day_stat.year
+        td = day_stat.month
+        td = day_stat.day_of_week
+        td = day_stat.is_weekend
+        td = day_stat.week
+        td = day_stat.season
+        td = link_to 'Show', day_stat
+        td = link_to 'Edit', edit_day_stat_path(day_stat)
+        td = link_to 'Destroy', day_stat, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Day stat', new_day_stat_path
