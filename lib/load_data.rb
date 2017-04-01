@@ -2,22 +2,22 @@ require 'csv'
 require 'open-uri'
 
 class LoadData
-  def self.read_and_load_csv
+  def self.run
     dir = "data"
-    file = File.join(dir, "summary_data.csv")
+    file = File.join(dir, "0327_daily_summary_data.csv")
     if file
       CSV.parse(open(file).read, headers: true) do |row|
         user = User.where(email: 'rosiehoyem@gmail.com').first
-        ds = DayStat.where(date: row['date']).first_or_create
+        ds = DayStat.where(stat_date: row['stat_date']).first_or_create
         ds.user_id = user.id
-        ds.amount = row['amount']
+        ds.spending_amount = row['amount']
         ds.resting_heart_rate = row['resting_heart_rate']
         ds.cardio_mins = row['cardio_mins']
         ds.fat_burn_mins = row['fat_burn_mins']
         ds.peak_mins = row['peak_mins']
         ds.total_minutes_asleep = row['total_minutes_asleep']
-        ds.awakenings_counts = row['awakenings_counts']
-        ds.start_time = row['start_time']
+        ds.awakenings_count = row['awakenings_counts']
+        ds.sleep_start_time = row['start_time']
         ds.cycling = row['cycling']
         ds.running = row['running']
         ds.stationary = row['stationary']
