@@ -1,20 +1,22 @@
 class UsersController < ApplicationController
-  render layout: 'user_layout'
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   def index
     @users = User.all
+    render layout: 'user_layout'
   end
 
   def show
+    render layout: 'user_layout'
   end
 
   def new
     @user = User.new
+    render layout: 'user_layout'
   end
 
   def edit
+    render layout: 'user_layout'
   end
 
   def create

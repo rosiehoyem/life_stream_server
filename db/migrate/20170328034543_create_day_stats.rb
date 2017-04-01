@@ -1,14 +1,15 @@
 class CreateDayStats < ActiveRecord::Migration[5.0]
   def change
     create_table :day_stats do |t|
-      t.float :amount
+      t.date :stat_date
+      t.float :spending_amount
       t.float :resting_heart_rate
       t.float :cardio_mins
       t.float :fat_burn_mins
       t.float :peak_mins
       t.float :total_minutes_asleep
-      t.string :awakenings_count
-      t.datetime :start_time
+      t.float :awakenings_count
+      t.datetime :sleep_start_time
       t.float :cycling
       t.float :running
       t.float :stationary
@@ -22,9 +23,9 @@ class CreateDayStats < ActiveRecord::Migration[5.0]
       t.float :snow_depth_inches
       t.datetime :sunrise
       t.datetime :sunset
-      t.int :year
-      t.int :month
-      t.int :day_of_week
+      t.integer :year
+      t.integer :month
+      t.integer :day_of_week
       t.boolean :is_weekend
       t.float :week
       t.string :season

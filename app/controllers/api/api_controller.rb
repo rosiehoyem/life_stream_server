@@ -1,7 +1,5 @@
 class Api::ApiController < ActionController::Base
-  protect_from_forgery with: :null_session
-  # skip_before_action :verify_authenticity_token # No session & API not browser based
-  # before_action :authenticate_with_app_user_token
+  protect_from_forgery with: :exception
   before_action :require_json
 
   respond_to :json
@@ -62,37 +60,5 @@ class Api::ApiController < ActionController::Base
         messages: errors[attribute],
       }
     end
-  end
-
-  def authenticate_with_config_var_token
-    authenticate_with_http_token do |token, options|
-      @authentication_success = (token == Rails.configuration.account_list_api_token)
-    end
-    return @authentication_success || render_unauthorized
-  end
-
-  def authenticate_with_account_token
-    authenticate_with_http_token do |token, options|
-      @account = Account.find_by_account_token(token)
-    end
-    return @account || render_unauthorized
-  end
-
-  def authenticate_with_app_user_token
-    authenticate_with_http_token do |token, options|
-      @app_user = AppUser.find_by_app_user_token(token)
-    end
-    return @app_user || render_unauthorized
-  end
-
-  def render_unauthorized
-    self.headers['WWW-Authenticate'] = 'Token realm="Application"'
-    render(
-      json: {
-        data: { message: 'Authentication token required.' },
-        metadata: {},
-      },
-      status: :unauthorized,
-    )
   end
 end

@@ -4,7 +4,7 @@ require 'open-uri'
 class LoadData
   def self.read_and_load_csv
     dir = "data"
-    file = File.join(dir, "project_data.csv")
+    file = File.join(dir, "summary_data.csv")
     if file
       CSV.parse(open(file).read, headers: true) do |row|
         user = User.where(email: 'rosiehoyem@gmail.com').first
