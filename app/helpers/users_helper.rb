@@ -10,7 +10,7 @@ module UsersHelper
   def activity_data(days)
     activity = []
     days.each do |day|
-      activity << (day.active/60) if day.active
+      activity << (day.active/60).round() if day.active
     end
     return activity
   end
@@ -18,7 +18,7 @@ module UsersHelper
   def sleep_data(days)
     sleep = []
     days.each do |day|
-      sleep << (day.total_minutes_asleep/60) if day.total_minutes_asleep
+      sleep << (day.total_minutes_asleep/60).round(1) if day.total_minutes_asleep
     end
     return sleep
   end

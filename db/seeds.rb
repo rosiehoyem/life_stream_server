@@ -4,4 +4,3 @@
 # Examples:
 #
 rosie_user = User.create(first_name: "Rosie", last_name: "Hoyem", email: "rosiehoyem@gmail.com", password: "Password1!", password_confirmation: "Password1!")
-admim_user = User.create(first_name: "Admin", last_name: "User", email: "rosiehoyem@gmail.com", password: "Password1!", password_confirmation: "Password1!")

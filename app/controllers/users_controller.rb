@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = User.find(params[:user_id])
-    @yesterday = Date.parse('2017-03-15')
+    @yesterday = Date.parse('2017-04-05')
     @yesterday_stat = @user.day_stats.where(stat_date: @yesterday).first
     @alltime_activity_labels, @alltime_activity = @user.all_time_stats((Date.commercial(2015,1)..(Date.today-1)), 'active')
     render layout: 'user_layout'
@@ -56,10 +56,10 @@ class UsersController < ApplicationController
 
   def time_series
     @user = User.find(params[:user_id])
-    @yesterday = Date.parse('2017-03-15')
+    @yesterday = Date.parse('2017-04-05')
     @yesterday_stat = @user.day_stats.where(stat_date: @yesterday).first
-    @week_stats = @user.day_stats.where(stat_date: (@yesterday-7)..@yesterday)
-    @month_stats = @user.day_stats.where(stat_date: (@yesterday-30)..@yesterday)
+    @week_stats = @user.day_stats.where(stat_date: (@yesterday-7)..@yesterday).order(:stat_date)
+    @month_stats = @user.day_stats.where(stat_date: (@yesterday-30)..@yesterday).order(:stat_date)
     @alltime_activity_labels, @alltime_activity = @user.all_time_stats((Date.commercial(2015,1)..(Date.today-1)), 'active')
     @alltime_sleep_labels, @alltime_sleep = @user.all_time_stats((Date.commercial(2015,1)..(Date.today-1)), 'total_minutes_asleep')
     @alltime_heartrate_labels, @alltime_heartrate = @user.all_time_stats((Date.commercial(2015,1)..(Date.today-1)), 'resting_heart_rate')

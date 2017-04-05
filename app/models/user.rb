@@ -37,7 +37,7 @@ class User < ApplicationRecord
           if day_tots.count >= 1 && day_tots.sum >= 1
             puts day_tots
             week_labels.push(Date.commercial(year,week).to_s)
-            week_tots.push(day_tots.sum/day_tots.count)
+            week_tots.push((day_tots.sum/day_tots.count).round(1))
           end
         end
       end
