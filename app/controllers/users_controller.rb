@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
+    @user = current_user
     @users = User.all
     render layout: 'user_layout'
   end
@@ -74,17 +75,17 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      # :first_name, 
-      # :last_name, 
+      :first_name, 
+      :last_name, 
       # :age, 
       # :gender, 
       # :address, 
       # :city, 
       # :state, 
       # :zip, 
-      # :email, 
-      # :password, 
-      # :password_confirmation
+      :email, 
+      :password, 
+      :password_confirmation
     )
   end
 end
