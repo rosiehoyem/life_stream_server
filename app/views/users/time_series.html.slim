@@ -1,0 +1,279 @@
+#content class="content" data-page-id="time-series"
+  h1.page-header Time Series 
+  .row
+    .col-md-12
+      ul.nav.nav-tabs
+        li.active <a href="#default-tab-1" data-toggle="tab">Yesterday</a>
+        li <a href="#default-tab-2" data-toggle="tab">This Week</a>
+        li <a href="#default-tab-3" data-toggle="tab">This Month</a>
+        li <a href="#default-tab-4" data-toggle="tab">All Time</a>
+      .tab-content
+        .tab-pane.active.in id="default-tab-1"
+          h3.m-t-10 <i class="fa fa-cog"></i> Yesterday's Stats
+          .row
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-green
+                .stats-icon
+                  <i class="fa fa-desktop"></i>
+                .stats-info
+                  h4 YESTERDAY'S DATE
+                  p= @yesterday_stat.stat_date 
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-blue
+                .stats-icon
+                  <i class="fa fa-chain-broken"></i>
+                .stats-info
+                  h4 HIGH / LOW TEMP
+                  p #{@yesterday_stat.high_temp} / #{@yesterday_stat.low_temp} 
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-green
+                .stats-icon
+                  <i class="fa fa-users"></i>
+                .stats-info
+                  h4 SUNRISE / SUNSET
+                  p #{@yesterday_stat.sunrise.strftime("%I:%M%p")} / #{@yesterday_stat.sunset.strftime("%I:%M%p")}  
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-blue
+                .stats-icon
+                  <i class="fa fa-clock-o"></i>
+                .stats-info
+                  h4 PRECIPITATION
+                  p= @yesterday_stat.precip_inches
+          .row
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-purple
+                .stats-icon
+                  <i class="fa fa-desktop"></i>
+                .stats-info
+                  h4 WALKING
+                  p= (@yesterday_stat.walking/60).round(1)
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-green
+                .stats-icon
+                  <i class="fa fa-chain-broken"></i>
+                .stats-info
+                  h4 RUNNING
+                  p= (@yesterday_stat.running/60).round(1)
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-purple
+                .stats-icon
+                  <i class="fa fa-users"></i>
+                .stats-info
+                  h4 CYCLING
+                  p= (@yesterday_stat.cycling/60).round(1)
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-green
+                .stats-icon
+                  <i class="fa fa-clock-o"></i>
+                .stats-info
+                  h4 TRANSPORT
+                  p= (@yesterday_stat.transport/60).round(1) 
+          .row
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-blue
+                .stats-icon
+                  <i class="fa fa-desktop"></i>
+                .stats-info
+                  h4 HOURS OF SLEEP
+                  p= (@yesterday_stat.total_minutes_asleep/60).round(1)
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-purple
+                .stats-icon
+                  <i class="fa fa-chain-broken"></i>
+                .stats-info
+                  h4 TOTAL AWAKENINGS
+                  p= @yesterday_stat.awakenings_count ? @yesterday_stat.awakenings_count : 2
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-blue
+                .stats-icon
+                  <i class="fa fa-users"></i>
+                .stats-info
+                  h4 BED TIME
+                  p= @yesterday_stat.sleep_start_time.strftime("%I:%M%p") if @yesterday_stat.sleep_start_time
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-purple
+                .stats-icon
+                  <i class="fa fa-clock-o"></i>
+                .stats-info
+                  h4 STATIONARY
+                  p= (@yesterday_stat.stationary/360).round(1)
+          .row
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-green
+                .stats-icon
+                  <i class="fa fa-desktop"></i>
+                .stats-info
+                  h4 RESTING HEART RATE
+                  p= @yesterday_stat.resting_heart_rate  
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-blue
+                .stats-icon
+                  <i class="fa fa-chain-broken"></i>
+                .stats-info
+                  h4 FAT BURN MINUTES
+                  p= @yesterday_stat.fat_burn_mins
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-green
+                .stats-icon
+                  <i class="fa fa-users"></i>
+                .stats-info
+                  h4 CARDIO MINUTES
+                  p= @yesterday_stat.cardio_mins
+            .col-md-3.col-sm-6
+              .widget.widget-stats.bg-blue
+                .stats-icon
+                  <i class="fa fa-clock-o"></i>
+                .stats-info
+                  h4 PEAK HEART RATE MINUTES
+                  p= @yesterday_stat.peak_mins
+          .row
+            .col-md-6
+              .panel.panel-inverse data-sortable-id="flot-chart-5"
+                .panel-heading
+                  h4.panel-title Activity Breakdown
+                .panel-body.well
+                  div {
+                    data-piechart-id= "activity-piechart"
+                    data-activity-breakdown = "#{activity_breakdown(@yesterday_stat)}"
+                  }
+                    canvas id="yesterday-pie-chart" data-render="chart-js"
+            .col-md-6
+              .panel.panel-inverse data-sortable-id="flot-chart-5"
+                .panel-heading
+                  h4.panel-title SPENDING
+                .panel-body.well
+                  div {
+                    data-piechart-id= "activity-piechart"
+                    data-activity-breakdown = "#{activity_breakdown(@yesterday_stat)}"
+                  }
+                    canvas id="yesterday-bar-chart" data-render="chart-js"
+
+        .tab-pane id="default-tab-2"
+          h4 The Past Week
+          .row
+            .col-md-12
+              .panel.panel-inverse data-sortable-id="index-1"
+                .panel-heading
+                  h4 class="panel-title" Active Minutes (walking, running, cycling)
+                .panel-body
+                  div { 
+                    id="weekly-activity"
+                    data-weekly-labels="#{chart_labels(@week_stats)}"
+                    data-weekly-activity="#{activity_data(@week_stats)}"
+                  }
+                    canvas id="weekly-activity-line-chart" height="70" data-render="chart-js"
+
+          .row
+            .col-md-12
+              .panel.panel-inverse data-sortable-id="index-1"
+                .panel-heading
+                  .panel-heading-btn
+                  h4 class="panel-title" Hours of Sleep
+                .panel-body
+                  div { 
+                    data-weekly-chart-id= "weekly-sleep"
+                    data-weekly-sleep = "#{sleep_data(@week_stats)}"
+                  }
+                    canvas id="weekly-sleep-line-chart" height="70" data-render="chart-js"
+
+          .row
+            .col-md-12
+              .panel.panel-inverse data-sortable-id="index-1"
+                .panel-heading
+                  .panel-heading-btn
+                  h4 class="panel-title" Resting Heart Rate
+                .panel-body
+                  div { 
+                    data-weekly-chart-id= "weekly-heartrate"
+                    data-weekly-heartrate = "#{heartrate_data(@week_stats)}"
+                  }
+                    canvas id="weekly-heartrate-line-chart" height="70" data-render="chart-js"
+
+        .tab-pane id="default-tab-3"
+          h4 The Past Month
+          .row
+            .col-md-12
+              .panel.panel-inverse data-sortable-id="index-1"
+                .panel-heading
+                  .panel-heading-btn
+                  h4 class="panel-title" Active Minutes (walking, running, cycling)
+                .panel-body
+                  div { 
+                    data-monthly-chart-id= "monthly-activity"
+                    data-monthly-labels = "#{chart_labels(@month_stats)}"
+                    data-monthly-activity = "#{activity_data(@month_stats)}"
+                  }
+                    canvas id="monthly-activity-line-chart" height="70" data-render="chart-js"
+
+          .row
+            .col-md-12
+              .panel.panel-inverse data-sortable-id="index-1"
+                .panel-heading
+                  .panel-heading-btn
+                  h4 class="panel-title" Hours of Sleep
+                .panel-body
+                  div { 
+                    data-monthly-chart-id= "monthly-sleep"
+                    data-monthly-sleep = "#{sleep_data(@month_stats)}"
+                  }
+                    canvas id="monthly-sleep-line-chart" height="70" data-render="chart-js"
+
+          .row
+            .col-md-12
+              .panel.panel-inverse data-sortable-id="index-1"
+                .panel-heading
+                  .panel-heading-btn
+                  h4 class="panel-title" Resting Heart Rate
+                .panel-body
+                  div { 
+                    data-monthly-chart-id= "monthly-heartrate"
+                    data-monthly-heartrate = "#{heartrate_data(@month_stats)}"
+                  }
+                    canvas id="monthly-heartrate-line-chart" height="70" data-render="chart-js"
+            
+
+
+        .tab-pane id="default-tab-4"
+          h4 The Past Month
+          .row
+            .col-md-12
+              .panel.panel-inverse data-sortable-id="index-1"
+                .panel-heading
+                  .panel-heading-btn
+                  h4 class="panel-title" Active Minutes (walking, running, cycling)
+                .panel-body
+                  div { 
+                    data-alltime-chart-id= "alltime-activity"
+                    data-alltime-labels = "#{@alltime_activity_labels}"
+                    data-alltime-activity = "#{@alltime_activity}"
+                  }
+                    canvas id="alltime-activity-line-chart" height="70" data-render="chart-js"
+
+          .row
+            .col-md-12
+              .panel.panel-inverse data-sortable-id="index-1"
+                .panel-heading
+                  .panel-heading-btn
+                  h4 class="panel-title" Hours of Sleep
+                .panel-body
+                  div { 
+                    data-alltime-chart-id= "alltime-sleep"
+                    data-alltime-sleep-labels = "#{@alltime_sleep_labels}"
+                    data-alltime-sleep = "#{@alltime_sleep}"
+                  }
+                    canvas id="alltime-sleep-line-chart" height="70" data-render="chart-js"
+
+          .row
+            .col-md-12
+              .panel.panel-inverse data-sortable-id="index-1"
+                .panel-heading
+                  .panel-heading-btn
+                  h4 class="panel-title" Resting Heartrate
+                .panel-body
+                  div { 
+                    data-alltime-chart-id= "alltime-heartrate"
+                    data-alltime-heartrate-labels = "#{@alltime_heartrate_labels}"
+                    data-alltime-heartrate = "#{@alltime_heartrate}"
+                  }
+                    canvas id="alltime-heartrate-line-chart" height="70" data-render="chart-js"
+            

@@ -1153,6 +1153,14 @@ var AppTheme = function () {
 			handleThemePanelExpand();
 		    handleResetLocalStorage();
 		},
+        initDashboard: function() {
+            handleInteractiveChart();
+            handleDashboardSparkline();
+            handleDonutChart();
+            handleDashboardTodolist();
+            handleVectorMap();
+            handleDashboardDatepicker();
+        },
 		scrollTop: function() {
             $('html, body').animate({
                 scrollTop: $('body').offset().top

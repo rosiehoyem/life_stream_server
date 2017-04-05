@@ -8,7 +8,7 @@ class LoadData
     if file
       CSV.parse(open(file).read, headers: true) do |row|
         user = User.where(email: 'rosiehoyem@gmail.com').first
-        ds = DayStat.where(stat_date: row['stat_date']).first_or_create
+        ds = DayStat.where(stat_date: row['stat_date']).first_or_initialize
         ds.user_id = user.id
         ds.spending_amount = row['amount']
         ds.resting_heart_rate = row['resting_heart_rate']
@@ -37,6 +37,8 @@ class LoadData
         ds.is_weekend = row['is_weekend']
         ds.week = row['week']
         ds.season = row['season']
+        ds.save
+        puts "added data for " + ds.stat_date.to_s
       end
     end
   end

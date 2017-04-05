@@ -3,19 +3,13 @@
     ul.nav
       li.nav-profile
         .image
-          = image_tag 'user-13.jpg'
+          = image_tag 'rosie.jpg'
         .info
           p Rosie Hoyem
           small Data Developer
     ul.nav
-      li.nav-header Navigation
-      li= link_to "Users", users_path
-      li.has-sub
-        <a href="javascript:;">
-          <b class="caret pull-right"></b>
-          <i class="fa fa-laptop"></i>
-          span Dashboard
-        </a>
-        ul.sub-menu
-            li.active Dashboard v1
-            li Dashboard v2
+      li.nav-header User
+      
+      li= link_to "Goals Dashboard", user_dashboard_path(user_id: @user.id)
+      li= link_to "Time Series", user_time_series_path(user_id: @user.id)
+      li= link_to "Data", user_day_stats_path(user_id: @user.id)

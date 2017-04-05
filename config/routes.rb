@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   root to: 'pages#coming_soon'
   
   devise_for :users
-  resources :users
+  resources :users do
+    get '/time_series', to: 'users#time_series'
+    get '/dashboard', to: 'users#dashboard'
+    resources :day_stats
+  end
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
@@ -13,6 +17,4 @@ Rails.application.routes.draw do
       resources :day_stats, only: %i(show create update)
     end
   end
-
-  resources :day_stats
 end

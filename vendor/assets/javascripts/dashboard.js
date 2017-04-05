@@ -96,6 +96,7 @@ var handleVectorMap = function() {
 };
 
 var handleInteractiveChart = function () {
+    consol.log('function')
 	"use strict";
     function showTooltip(x, y, contents) {
         $('<div id="tooltip" class="flot-tooltip">' + contents + '</div>').css( {
@@ -104,7 +105,7 @@ var handleInteractiveChart = function () {
         }).appendTo("body").fadeIn(200);
     }
 	if ($('#interactive-chart').length !== 0) {
-	
+	   console.log('chart')
         var data1 = [ 
             [1, 40], [2, 50], [3, 60], [4, 60], [5, 60], [6, 65], [7, 75], [8, 90], [9, 100], [10, 105], 
             [11, 110], [12, 110], [13, 120], [14, 130], [15, 135],[16, 145], [17, 132], [18, 123], [19, 135], [20, 150] 

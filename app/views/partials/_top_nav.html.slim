@@ -3,12 +3,12 @@
     .navbar-header
       = link_to "<span class='navbar-logo'></span>  Life Stream".html_safe, root_path, class: "navbar-brand"
     ul.nav.navbar-nav.navbar-right
-      li= link_to "About", root_path
+      li= link_to "Admin", users_path
       - if current_user
         li.dropdown.navbar-user
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-            = image_tag "user-13.jpg" 
-            <span class="hidden-xs">Rosanne Hoyem</span> <b class="caret"></b>
+            = image_tag "rosie.jpg" 
+            <span class="hidden-xs">Rosie Hoyem</span> <b class="caret"></b>
           </a>
           ul.dropdown-menu.animated.fadeInLeft
             li.arrow

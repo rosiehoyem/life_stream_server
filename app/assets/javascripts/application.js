@@ -16,6 +16,10 @@
 // require turbolinks
 //= require bootstrap
 //= require pace
+// require jquery.flot
+// require jquery.flot.resize
+// require jquery.flot.pie
+// require jquery.flot.time
 //= require Chart.bundle
 //= require apps
 //= require dashboard

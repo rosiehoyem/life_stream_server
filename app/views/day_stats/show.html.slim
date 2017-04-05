@@ -1,84 +1,88 @@
-p#notice = notice
+#content class="content"
+  h1.page-header Day Stat
+  .row
+    .col-md-12
+      p#notice = notice
 
-p
-  strong Amount:
-  = @day_stat.amount
-p
-  strong Resting heart rate:
-  = @day_stat.resting_heart_rate
-p
-  strong Cardio mins:
-  = @day_stat.cardio_mins
-p
-  strong Fat burn mins:
-  = @day_stat.fat_burn_mins
-p
-  strong Peak mins:
-  = @day_stat.peak_mins
-p
-  strong Total minutes asleep:
-  = @day_stat.total_minutes_asleep
-p
-  strong Awakenings countstart time:
-  = @day_stat.awakenings_countstart_time
-p
-  strong Cycling:
-  = @day_stat.cycling
-p
-  strong Running:
-  = @day_stat.running
-p
-  strong Stationary:
-  = @day_stat.stationary
-p
-  strong Transport:
-  = @day_stat.transport
-p
-  strong Walking:
-  = @day_stat.walking
-p
-  strong Active:
-  = @day_stat.active
-p
-  strong High temp:
-  = @day_stat.high_temp
-p
-  strong Low temp:
-  = @day_stat.low_temp
-p
-  strong Precip inches:
-  = @day_stat.precip_inches
-p
-  strong Snow inches:
-  = @day_stat.snow_inches
-p
-  strong Snow depth inches:
-  = @day_stat.snow_depth_inches
-p
-  strong Sunrise:
-  = @day_stat.sunrise
-p
-  strong Sunset:
-  = @day_stat.sunset
-p
-  strong Year:
-  = @day_stat.year
-p
-  strong Month:
-  = @day_stat.month
-p
-  strong Day of week:
-  = @day_stat.day_of_week
-p
-  strong Is weekend:
-  = @day_stat.is_weekend
-p
-  strong Week:
-  = @day_stat.week
-p
-  strong Season:
-  = @day_stat.season
+      p
+        strong Amount:
+        = @day_stat.amount
+      p
+        strong Resting heart rate:
+        = @day_stat.resting_heart_rate
+      p
+        strong Cardio mins:
+        = @day_stat.cardio_mins
+      p
+        strong Fat burn mins:
+        = @day_stat.fat_burn_mins
+      p
+        strong Peak mins:
+        = @day_stat.peak_mins
+      p
+        strong Total minutes asleep:
+        = @day_stat.total_minutes_asleep
+      p
+        strong Awakenings countstart time:
+        = @day_stat.awakenings_countstart_time
+      p
+        strong Cycling:
+        = @day_stat.cycling
+      p
+        strong Running:
+        = @day_stat.running
+      p
+        strong Stationary:
+        = @day_stat.stationary
+      p
+        strong Transport:
+        = @day_stat.transport
+      p
+        strong Walking:
+        = @day_stat.walking
+      p
+        strong Active:
+        = @day_stat.active
+      p
+        strong High temp:
+        = @day_stat.high_temp
+      p
+        strong Low temp:
+        = @day_stat.low_temp
+      p
+        strong Precip inches:
+        = @day_stat.precip_inches
+      p
+        strong Snow inches:
+        = @day_stat.snow_inches
+      p
+        strong Snow depth inches:
+        = @day_stat.snow_depth_inches
+      p
+        strong Sunrise:
+        = @day_stat.sunrise
+      p
+        strong Sunset:
+        = @day_stat.sunset
+      p
+        strong Year:
+        = @day_stat.year
+      p
+        strong Month:
+        = @day_stat.month
+      p
+        strong Day of week:
+        = @day_stat.day_of_week
+      p
+        strong Is weekend:
+        = @day_stat.is_weekend
+      p
+        strong Week:
+        = @day_stat.week
+      p
+        strong Season:
+        = @day_stat.season
 
-= link_to 'Edit', edit_day_stat_path(@day_stat)
-'|
-= link_to 'Back', day_stats_path
+      = link_to 'Edit', edit_day_stat_path(@day_stat)
+      '|
+      = link_to 'Back', day_stats_path

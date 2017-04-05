@@ -1,4 +1,4 @@
-= form_for @day_stat do |f|
+= form_for user_day_stat_url(user_id: @user.id), html: { class: "form-horizontal"} do |f|
   - if @day_stat.errors.any?
     #error_explanation
       h2 = "#{pluralize(@day_stat.errors.count, "error")} prohibited this day_stat from being saved:"
@@ -6,82 +6,113 @@
         - @day_stat.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :amount
-    = f.text_field :amount
-  .field
-    = f.label :resting_heart_rate
-    = f.text_field :resting_heart_rate
-  .field
-    = f.label :cardio_mins
-    = f.text_field :cardio_mins
-  .field
-    = f.label :fat_burn_mins
-    = f.text_field :fat_burn_mins
-  .field
-    = f.label :peak_mins
-    = f.text_field :peak_mins
-  .field
-    = f.label :total_minutes_asleep
-    = f.text_field :total_minutes_asleep
-  .field
-    = f.label :awakenings_countstart_time
-    = f.text_field :awakenings_countstart_time
-  .field
-    = f.label :cycling
-    = f.text_field :cycling
-  .field
-    = f.label :running
-    = f.text_field :running
-  .field
-    = f.label :stationary
-    = f.text_field :stationary
-  .field
-    = f.label :transport
-    = f.text_field :transport
-  .field
-    = f.label :walking
-    = f.text_field :walking
-  .field
-    = f.label :active
-    = f.text_field :active
-  .field
-    = f.label :high_temp
-    = f.text_field :high_temp
-  .field
-    = f.label :low_temp
-    = f.text_field :low_temp
-  .field
-    = f.label :precip_inches
-    = f.text_field :precip_inches
-  .field
-    = f.label :snow_inches
-    = f.text_field :snow_inches
-  .field
-    = f.label :snow_depth_inches
-    = f.text_field :snow_depth_inches
-  .field
-    = f.label :sunrise
-    = f.text_field :sunrise
-  .field
-    = f.label :sunset
-    = f.text_field :sunset
-  .field
-    = f.label :year
-    = f.text_field :year
-  .field
-    = f.label :month
-    = f.text_field :month
-  .field
-    = f.label :day_of_week
-    = f.text_field :day_of_week
-  .field
-    = f.label :is_weekend
-    = f.text_field :is_weekend
-  .field
-    = f.label :week
-    = f.text_field :week
-  .field
-    = f.label :season
-    = f.text_field :season
-  .actions = f.submit
+  .form-group
+    = f.label :amount, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :amount, class: "form-control"
+  .form-group
+    = f.label :resting_heart_rate, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :resting_heart_rate, class: "form-control"
+  .form-group
+    = f.label :cardio_mins, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :cardio_mins, class: "form-control"
+  .form-group
+    = f.label :fat_burn_mins, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :fat_burn_mins, class: "form-control"
+  .form-group
+    = f.label :peak_mins, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :peak_mins, class: "form-control"
+  .form-group
+    = f.label :total_minutes_asleep, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :total_minutes_asleep, class: "form-control"
+  .form-group
+    = f.label :awakenings_countstart_time, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :awakenings_count, class: "form-control"
+  .form-group
+    = f.label :sleep_start_time, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :sleep_start_time, class: "form-control"
+  .form-group
+    = f.label :cycling, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :cycling, class: "form-control"
+  .form-group
+    = f.label :running, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :running, class: "form-control"
+  .form-group
+    = f.label :stationary, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :stationary, class: "form-control"
+  .form-group
+    = f.label :transport, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :transport, class: "form-control"
+  .form-group
+    = f.label :walking, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :walking, class: "form-control"
+  .form-group
+    = f.label :active, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :active, class: "form-control"
+  .form-group
+    = f.label :high_temp, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :high_temp
+  .form-group
+    = f.label :low_temp, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :low_temp, class: "form-control"
+  .form-group
+    = f.label :precip_inches, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :precip_inches, class: "form-control"
+  .form-group
+    = f.label :snow_inches, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :snow_inches, class: "form-control"
+  .form-group
+    = f.label :snow_depth_inches, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :snow_depth_inches, class: "form-control"
+  .form-group
+    = f.label :sunrise, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :sunrise, class: "form-control"
+  .form-group
+    = f.label :sunset, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :sunset, class: "form-control"
+  .form-group
+    = f.label :year, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :year, class: "form-control"
+  .form-group
+    = f.label :month, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :month, class: "form-control"
+  .form-group
+    = f.label :day_of_week, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :day_of_week, class: "form-control"
+  .form-group
+    = f.label :is_weekend, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :is_weekend, class: "form-control"
+  .form-group
+    = f.label :week, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :week, class: "form-control"
+  .form-group
+    = f.label :season, class: "col-sm-2 control-label"
+    .col-sm-6
+      = f.text_field :season, class: "form-control"
+  .actions 
+    = f.submit class: "btn btn-primary"

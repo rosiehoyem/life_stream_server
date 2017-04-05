@@ -1,0 +1,87 @@
+#content class="content" data-page-id="dashboard"
+  h1.page-header Progress <small></small>
+  .row
+    .col-md-12
+      .row
+        .col-md-3.col-sm-6
+          .widget.widget-stats.bg-green
+            .stats-icon
+              <i class="fa fa-desktop"></i>
+            .stats-info
+              h4 ACTIVE MINUTES
+              p= (@yesterday_stat.active/60).round(1)
+              <i class="ion-arrow-up-a"></i>
+        .col-md-3.col-sm-6
+          .widget.widget-stats.bg-blue
+            .stats-icon
+              <i class="fa fa-chain-broken"></i>
+            .stats-info
+              h4 RESTING HEART RATE
+              p= @yesterday_stat.resting_heart_rate 
+        .col-md-3.col-sm-6
+          .widget.widget-stats.bg-green
+            .stats-icon
+              <i class="fa fa-users"></i>
+            .stats-info
+              h4 HOURS OF SLEEP
+              p= (@yesterday_stat.total_minutes_asleep/60).round(1)  
+        .col-md-3.col-sm-6
+          .widget.widget-stats.bg-blue
+            .stats-icon
+              <i class="fa fa-clock-o"></i>
+            .stats-info
+              h4 STEPS
+              p= @yesterday_stat.walking.round(0)
+
+  h4 Resting Heart Rate Challenge
+  .row
+    .col-md-12
+      .panel.panel-inverse data-sortable-id="index-1"
+        .panel-heading
+          .panel-heading-btn
+          h4 class="panel-title" Daily Resting Heart Rate
+        .panel-body
+          div { 
+            id= "alltime-activity"
+            data-alltime-labels = "#{@alltime_activity_labels}"
+            data-alltime-activity = "#{@alltime_activity}"
+          }
+            canvas id="resting-heart-rate-line-chart" height="70" data-render="chart-js"
+
+  h4 30 Days of Cycling Challenge
+  .row
+    .col-md-12
+      .panel.panel-inverse data-sortable-id="index-1"
+        .panel-heading
+          .panel-heading-btn
+          h4 class="panel-title" Daily Cycling
+        .panel-body
+          div { 
+            data-alltime-chart-id= "alltime-activity"
+            data-alltime-labels = "#{@alltime_activity_labels}"
+            data-alltime-activity = "#{@alltime_activity}"
+          }
+            canvas id="cycling-goal-line-chart" height="70" data-render="chart-js"
+  .row
+    .col-md-6
+      .panel.panel-inverse data-sortable-id="flot-chart-5"
+        .panel-heading
+          h4.panel-title Activity Breakdown
+        .panel-body
+          div {
+            data-piechart-id= "activity-piechart"
+            data-activity-breakdown = "#{activity_breakdown(@yesterday_stat)}"
+          }
+            canvas id="pie-chart" data-render="chart-js"
+
+    .col-md-6
+      .panel.panel-inverse data-sortable-id="chart-js-6"
+        .panel-heading
+          h4.panel-title Spending 
+        .panel-body
+          div {
+            data-barchart-id= "spending-barchart"
+          }
+            canvas id="bar-chart" data-render="chart-js"
+
+

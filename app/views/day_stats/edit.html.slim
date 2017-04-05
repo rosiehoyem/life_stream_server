@@ -1,8 +1,10 @@
-h1 Editing day_stat
+#content class="content"
+  h1.page-header Edit Day Stat <small>#{@day_stat.stat_date}</small>
+  .row
+    .col-sm-10
+      == render 'form'
 
-== render 'form'
-
-= link_to 'Show', @day_stat
-'|
-= link_to 'Back', day_stats_path
+      = link_to 'Show', user_day_stat_path(id: @day_stat.id, user_id: @user.id)
+      '|
+      = link_to 'Back', user_day_stats_path(user_id: @user.id)
 
